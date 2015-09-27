@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+
+        {{ include("AppBundle::head.html.twig") }}
+        {% block head %}
+
+        {% endblock %}
+
+
+        <title>{% block title %}Lípa pije{% endblock %}</title>
+    </head>
+    <body>
+        <script>
+            $(document).ready(function () {
+                $(".button-collapse").sideNav();
+            });
+        </script>
+
+        {% block menu %}
+
+            <nav style="padding: 0 50px; margin-bottom: 20px;" class=" blue darken-2">
+                <div class="nav-wrapper ">
+                    <a href="{{ path("app_main_index")}}" class="brand-logo">{% block menuNadpis %}Administrace{% endblock %}</a>
+                    <a href="#" data-activates="mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
+                    <ul id="nav-desktop" class="right hide-on-med-and-down">
+
+                        <li class="{% block hospodyMenuActive %}{% endblock %}"><a href="{{ path("app_admin_admin") }} " >Hospody</a></li>
+                        <li class="{% block pivaMenuActive %}{% endblock %}"><a href="{{ path("app_admin_piva") }} " >Piva</a></li>
+                        <li class="{% block lokaceMenuActive %}{% endblock %}"><a href="{{ path("app_admin_lokace") }} " >Lokace</a></li> 
+                        <li class="{% block atrakceMenuActive %}{% endblock %}"><a href="{{ path("app_admin_atrakce") }} " >Atrakce</a></li>                       
+                        <li><a href="{{ path('logout') }}">Odhlásit se</a></li> 
+
+                    </ul>
+
+
+                    <ul class="side-nav" id="mobile">
+                        <li class="{{ block('hospodyMenuActive') }}"><a href="{{ path("app_admin_admin") }} " >Hospody</a></li>
+                        <li class="{{ block('pivaMenuActive') }}"><a href="{{ path("app_admin_piva") }} " >Piva</a></li>
+                        <li class="{{ block('lokaceMenuActive') }}"><a href="{{ path("app_admin_lokace") }} " >Lokace</a></li> 
+                        <li class="{{ block('atrakceMenuActive') }}"><a href="{{ path("app_admin_atrakce") }} " >Atrakce</a></li>                       
+                        <li><a href="{{ path('logout') }}">Odhlásit se</a></li> 
+
+                    </ul>
+
+
+
+
+
+
+                </div>
+            </nav>
+
+        {% endblock %}
+
+
+
+        <div class="container">
+            {% block body %}
+                <h1>Nepřepsany kokot</h1>
+            {% endblock %}
+        </div>
+
+
+
+    </body>
+</html>

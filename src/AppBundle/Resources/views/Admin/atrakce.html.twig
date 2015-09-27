@@ -1,0 +1,56 @@
+{% extends "AppBundle::baseAdmin.html.twig" %}
+
+{% block title %}Administrace Lípapije.cz{% endblock %}
+
+{% block menuNadpis %}Administrace atrakcí{% endblock %}
+{% block atrakceMenuActive %}active{% endblock %}
+{% block body %}
+    <script>
+        $(document).ready(function () {
+            $("#pridat-Atrakce-Obal").hide();
+
+            $("#pridat-Atrakce-Button").click(function () {
+                $("#pridat-Atrakce-Obal").slideDown(300);
+            });
+
+
+        });
+
+    </script>
+
+    <a class="waves-effect waves-light btn center" id="pridat-Atrakce-Button"><i class="material-icons left">add</i>Přidat atrakce</a>
+    <div class="row" id="pridat-Atrakce-Obal">
+
+        <form action="{{ url("app_admin_atrakceulozit") }}" method="POST" class="col s12 m6 offset-m3" >
+            <div class="input-field col s6">
+                <input id="jmeno" type="text" class="validate" name="jmeno">
+                <label for="jmeno">Název atrakce</label>
+            </div>
+
+            <div class="input-field col s6">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Uložit atrakci
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>    
+
+        </form>
+
+    </div>
+
+
+    <div class="row">
+        <div class="col s12 m6 offset-m3">
+            <table class=" bordered stripped centered">
+
+                {% for jednaAtrakce in atrakce %}
+
+                    <tr><td>{{ jednaAtrakce.jmeno }}</td><td><a class="waves-effect waves-light btn" href="{{path('app_admin_atrakcesmazat', {'atrakceId': jednaAtrakce.id}) }}"><i class="material-icons left">delete</i>Smazat</a></td></tr>
+
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+
+{% endblock %}

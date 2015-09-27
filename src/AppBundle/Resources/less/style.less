@@ -1,0 +1,184 @@
+//http://paletton.com/palette.php?uid=50x0s0kw0w0jyC%2BoRxVy4oIDfjr
+
+@white: #FFF ;
+@shadow: 0px 0px 13px rgba(0, 0, 0, 1);
+
+*{
+    box-sizing: border-box;
+}
+
+.big-center-button{
+    margin: 0 auto;
+    display: block;
+    width: 313px;
+    background-color: #409FFF;
+
+    
+}
+
+.btn:hover, .btn-large:hover {
+    background-color: #007fff;
+}
+
+
+
+body{
+    padding-bottom: 30px;
+}
+h1{
+    font-size: 80px;
+    color: @white;
+    text-shadow: @shadow;
+    margin: 5px 0;
+}
+
+h3{
+    font-size: 50px;
+    color: @white - #111;
+    text-shadow: @shadow;
+    margin: 5px 0;
+}
+
+nav{
+    background-color: #409FFF;
+    color: #FFF;
+    ul a{
+        color: inherit;
+        font-size: 19px;
+    }
+
+}
+
+
+
+.footer{
+    position: fixed;
+    height: 30px;
+    width: 100%;
+    background-color: #EE6E73;
+    bottom: 0px;
+}
+
+.hoverable{
+    box-shadow: none !important;
+}
+
+.overpage{
+    padding: 20px 0;
+    box-shadow: 0 0px 15px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19)
+}
+
+
+.blokOuter{
+
+
+
+    .blockInner{
+
+        height: 183px;
+        padding: 9px;
+        margin-bottom: 20px;
+        margin-right: 20px; 
+        background: #f9fbfe;
+        border-left: 4px solid;    
+        border-radius: 3px;
+        border-color: #409FFF;
+        -moz-transition: ease-in-out .2s all;
+        -o-transition: ease-in-out .2s all;
+        -webkit-transition: ease-in-out .2s all;
+        transition: ease-in-out .2s all;    
+
+        &:hover{
+
+            background: #CFE9FF;
+        }
+
+        h4, p{
+            margin: 0;
+        }
+
+        .hodnoceniPopisBar{
+            height: 73px;
+            margin-bottom: 4px;
+
+            .ohodnoceni {
+                float: left;
+                width: 185px;
+
+
+                .star-full, .star-empty{
+                    width: 20px;
+                    height: 20px;
+                    background-size: contain;
+                    background-position: center center;
+                    display: block;
+                    float: left;
+                    top: -5px;
+                    position: relative;
+                }
+
+                .star-full{                    
+                    background-image: url(../../img/icons/star-full.png);
+                }    
+                .star-empty{
+                    background-image: url(../../img/icons/star-empty.png);
+                }
+
+            }
+
+            .popis{
+                overflow: auto;
+                padding: 0px 0px 0 13px;
+            }
+
+            h5{
+                margin-top: 3px;
+                margin-right: 5px;
+                font-size: 14px;
+            }
+
+        }
+
+        .piva {
+            clear: both;
+            float: left;
+            width: auto;
+            display: inline-block;
+
+            h4{    
+                margin-top: 5px;
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            .nazevPiva{
+                min-width: 100px;
+            }
+
+
+
+        }
+
+        .atrakce{    
+            overflow: hidden;
+            padding: 0px 10px 0 10px;
+        }
+
+        .atrakce h5 {
+            display:block;
+        }
+
+        .atrakce td{
+            padding-left: 59px;
+        }
+
+
+        .atrakceFull td{
+            padding-left: 10px;
+        }
+
+    }
+}
+
+
+

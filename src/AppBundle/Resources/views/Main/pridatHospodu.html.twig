@@ -1,0 +1,28 @@
+{% extends "AppBundle::base.html.twig" %}
+
+{% block title %}Přidat hospodu{% endblock %}
+
+{% block body %}
+    <h1>Přidání hospody</h1>
+
+    <div class="row">
+        <form class="col s12" method="POST" action="{{path("app_main_ulozitnovouhospodu") }}">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input placeholder="jmeno" id="jmeno" type="text" class="validate" name="jmeno">
+                    <label for="jmeno">Jméno</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="adresa" type="text" class="validate" name="adresa">
+                    <label for="adresa">Adresa</label>
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Odeslat
+                <i class="material-icons">send</i>
+            </button>
+        </form>
+    </div>
+
+
+
+{% endblock %}

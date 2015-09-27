@@ -1,0 +1,132 @@
+{% extends "AppBundle::base.html.twig" %}
+
+{% block title %}LípaPije.cz - nejlepší hospody českolipska na jednom místě{% endblock %}
+
+{% block body %}
+    <div class="parallax-container valign-wrapper" style="height: 600px;">
+        <div class="parallax">
+            {% image '@AppBundle/Resources/img/foto/skybeer.jpg' %}
+            <img src="{{ asset_url }}" alt="lipapije.cz" />
+            {% endimage %}
+        </div>
+        <div class="valign center-block center-align">
+            <h1>LípaPije.cz</h1>
+            <h3>buďte u té nejlepší pípy</h3>
+
+        </div>
+
+    </div>
+
+
+    <div class="overpage">  
+        <div class="container">
+            <div class="row">
+                {% for hospoda in hospody %}
+
+
+                    <div class="col s12 m6 blokOuter">
+                        <div class="blockInner">
+                            <h4 style="display:inline-block;">{{ hospoda.jmeno }} </h4>
+                            <p style="display:inline-block;">&nbsp;&nbsp;{{ hospoda.adresa}} - {{ hospoda.lokace.jmeno }}</p>
+                            <div class="hodnoceniPopisBar">
+                                <div class="ohodnoceni">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td><h5><b>Obsluha</b></h5></td>
+                                                <td>
+                                                    {% for i in 1..5 %}
+                                                        {% if hospoda.obsluha >= i%}
+                                                            <span class="star-full"></span>
+                                                        {% else %}
+                                                            <span class="star-empty"></span>
+                                                        {% endif %}
+
+                                                    {% endfor %}
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><h5><b>Prostředí</b></h5></td>
+                                                <td>
+                                                    {% for i in 1..5 %}
+                                                        {% if hospoda.prostredi >= i %}
+                                                            <span class="star-full"></span>
+                                                        {% else %}
+                                                            <span class="star-empty"></span>
+                                                        {% endif %}
+                                                    {% endfor %}
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><h5><b>Celkem</b></h5></td>
+                                                <td>
+                                                    {% for i in 1..5 %}
+                                                        {% if hospoda.celkem >= i %}
+                                                            <span class="star-full"></span>
+                                                        {% else %}
+                                                            <span class="star-empty"></span>
+                                                        {% endif %}
+                                                    {% endfor %}
+
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <h5 class="popis">{{ hospoda.popis }}</h5>
+                            </div>
+
+                            <div class="piva">
+                                <table>
+                                    <tbody>
+                                        {% for pivo in hospoda.piva %}
+                                            <tr><td><h4 class="nazevPiva">{{ pivo.znacka.nazev }}</h4></td><td><h4>{{ pivo.cena }},-</h4></td></tr>
+                                                {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="atrakce">
+                                {% for atrakce in hospoda.atrakce %}
+                                    <span class="icon {{ atrakce.jmeno|lower }}" title="{{ atrakce.jmeno }}"> </span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <a class="waves-effect waves-light btn-large big-center-button" href="{{url('hospody')}}"><i class="material-icons left">clear_all</i>Všechny hospody</a>
+    </div> 
+
+
+
+    <div class="parallax-container valign-wrapper" style="height: 600px;">
+        <div class="parallax">
+            {% image '@AppBundle/Resources/img/foto/skybeer.jpg' %}
+            <img src="{{ asset_url }}" alt="lipapije.cz" />
+            {% endimage %}
+        </div>
+        <div class="valign center-block center-align">
+            <h1>LípaPije.cz</h1>
+            <h3>buďte u té nejlepší pípy</h3>
+
+            <!--<a class="waves-effect waves-light btn-large"><i class="material-icons left">shopping_cart</i>Chci výhodně nakoupit</a>-->
+        </div>
+
+    </div>
+
+
+    <script>
+        $(function () {
+            $('.parallax').parallax();
+        });
+
+    </script>
+
+{% endblock %}

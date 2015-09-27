@@ -1,0 +1,101 @@
+body{
+    padding-bottom: 30px;
+}
+
+.footer{
+    position: fixed;
+    height: 30px;
+    width: 100%;
+    background-color: #EE6E73;
+    bottom: 0px;
+}
+
+.hoverable{
+    box-shadow: none !important;
+}
+
+td {
+    padding:0;
+}
+
+
+
+// Star rating
+.starRate {position:relative; margin:20px; overflow:hidden; zoom:1;}
+.starRate ul {width:160px; margin:0; padding:0;}
+.starRate li {display:inline; list-style:none;}
+.starRate a, .starRate b {background:url(../img/star_rate.gif) left top repeat-x;}
+.starRate a {float:right; margin:0 80px 0 -144px; width:80px; height:16px; background-position:left 16px; color:#000; text-decoration:none;}
+//.starRate a:hover {background-position:left -32px;}
+.starRate b {position:absolute; z-index:-1; width:80px; height:16px; background-position:left -16px;}
+.starRate div b {left:0px; bottom:0px; background-position:left top;}
+.starRate a span {position:absolute; left:-300px;}
+//.starRate a:hover span {left:90px; width:100%;}
+
+
+.blok {
+    //height: 183px;
+    padding: 6px;
+    display: block;
+    margin-bottom: 20px;
+    /* margin-right: 20px; */
+    background: #f9fbfe;
+    border-left: 4px solid;    
+    border-radius: 3px;
+    border-color: #409FFF;
+    -moz-transition: ease-in-out .2s all;
+    -o-transition: ease-in-out .2s all;
+    -webkit-transition: ease-in-out .2s all;
+    transition: ease-in-out .2s all;
+    box-sizing: border-box;
+}
+
+.hodnoceniPopisBar{
+    height: 73px;
+    margin-bottom: 4px;
+}
+
+
+.ohodnoceni {
+    float: left;
+    width: 185px;
+    font-size: 5px;
+}
+.ohodnoceni h5{
+    clear: both; 
+    float:left;
+    margin-top: 3px;
+    margin-right: 5px;
+    font-size: 15px;
+}
+
+
+.popis{
+    margin: 5px 0 0 5px;
+    font-weight: 500;
+overflow: hidden;
+padding: 5px 0px 0 13px;
+}
+
+.piva {
+    clear:both;
+    float: left;
+}
+
+.atrakce{    
+    overflow: hidden;
+    padding: 0px 10px 0 10px;
+}
+
+.atrakce h5 {
+    display:block;
+}
+
+.atrakce td{
+    padding-left: 59px;
+}
+
+
+.atrakceFull td{
+    padding-left: 10px;
+}

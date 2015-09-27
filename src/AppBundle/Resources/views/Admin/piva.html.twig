@@ -1,0 +1,56 @@
+{% extends "AppBundle::baseAdmin.html.twig" %}
+
+{% block title %}Administrace Lípapije.cz{% endblock %}
+
+{% block pivaNadpis %}Administrace piv{% endblock %}
+{% block pivaMenuActive %}active{% endblock %}
+{% block body %}
+    <script>
+        $(document).ready(function () {
+            $("#pridat-Pivo-Obal").hide();
+
+            $("#pridat-Pivo-Button").click(function () {
+                $("#pridat-Pivo-Obal").slideDown(300);
+            });
+
+
+        });
+
+    </script>
+
+    <a class="waves-effect waves-light btn" id="pridat-Pivo-Button"><i class="material-icons left">add</i>Přidat pivo</a>
+    <div class="row" id="pridat-Pivo-Obal">
+
+        <form action="{{ url("app_admin_pivoulozit") }}" method="POST" class="col s6 offset-s3" >
+            <div class="input-field col s6">
+                <input id="nazev" type="text" class="validate" name="nazev">
+                <label for="nazev">Název piva</label>
+            </div>
+
+            <div class="input-field col s6">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Uložit pivo
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>    
+
+        </form>
+
+    </div>
+
+
+    <div class="row">
+        <div class="col s6 offset-s3">
+            <table class=" bordered stripped centered hoverable">
+
+                {% for pivo in piva %}
+
+                    <tr><td>{{ pivo.nazev }}</td><td><a class="waves-effect waves-light btn" href="{{path('app_admin_pivosmazat', {'pivoId': pivo.id}) }}"><i class="material-icons left">delete</i>Smazat</a></td></tr>
+
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+
+{% endblock %}

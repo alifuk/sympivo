@@ -1,0 +1,22 @@
+{% extends "AppBundle::baseAdmin.html.twig" %}
+
+{% block title %}Administrace Lípapije.cz{% endblock %}
+
+{% block menuNadpis %}Administrace hospod{% endblock %}
+{% block hospodyMenuActive %}active{% endblock %}
+{% block body %}
+    
+    <a class="waves-effect waves-light btn" href="{{ url("app_admin_pridathospodu") }} "><i class="material-icons left">add</i>Přidat hospodu</a>
+    
+    
+    <table>
+
+    {% for hospoda in hospody %}
+
+        <tr><td>{{ hospoda.jmeno }}</td><td><a href={{url('app_admin_upravithospodu', {hospodaId: hospoda.id} )}}>Upravit</a></td></tr>
+
+    {% endfor %}
+
+    </table>
+
+{% endblock %}

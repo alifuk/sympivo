@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+
+        {{ include("AppBundle::head.html.twig") }}
+        {% block head %}
+
+        {% endblock %}
+
+
+        <title>{% block title %}Lípa pije{% endblock %}</title>
+    </head>
+    <body>
+
+        {% block menu %}
+            <div class="navbar-fixed">
+                <nav style="padding: 0 50px;" class="z-depth-2">
+                    <div class="container">
+                        <div class="nav-wrapper">
+                            <a href="{{ path("app_main_index")}}" class="brand-logo">LípaPije.cz</a>
+                            <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <li><a href="{{ path('app_admin_admin')}}">Administrace</a></li>
+                                    {% else %}                            
+                                    <li><a href="{{ path('login')}}">Přihlásit se</a></li>
+                                    {% endif %}
+
+                                
+                                <li><a href="{{ path("app_main_jakhodnotime") }} ">Jak Hodnotíme</a></li>
+                                <li><a href="{{ path("app_main_onas")}}">O nás</a></li>
+                                <li><a href="{{ path("app_main_napistenam")}}">Napište nám</a></li>
+
+                                {% if is_granted('ROLE_ADMIN') %}                            
+                                    <li><a href="{{ path('logout') }}">Odhlásit se</a></li>                            
+                                    {% endif %}
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+        {% endblock %}
+
+        {% block body %}
+        {% endblock %}
+
+
+
+        {{ include("AppBundle::footer.html.twig") }}
+    </body>
+</html>
