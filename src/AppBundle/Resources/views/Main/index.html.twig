@@ -77,9 +77,17 @@
                                 </tbody>
                             </table>
 
+                            <div class="outer popis-outer">
+                                <div class="middle">
+                                    <div class="inner">
+                                        <h5 class="popis">{{ hospoda.popis }}</h5>
 
-                            <h5 class="popis">{{ hospoda.popis }}</h5>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div class="ikonka-piva-oddeleni">
+                            </div>
 
                             <table class="piva">
                                 <tbody>
@@ -148,7 +156,7 @@
 
         {% for hospoda in hospody %}
             var marker = new SMap.Marker(SMap.Coords.fromWGS84({{hospoda.lon}}, {{hospoda.lat}}, {{hospoda.id}}, null));
-            layer.addMarker(marker);
+                    layer.addMarker(marker);
         {% endfor %}
 
 
