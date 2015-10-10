@@ -24,76 +24,75 @@
                 {% for hospoda in hospody %}
 
 
-                    
-                    <div class="col s12 m6 blokOuter">
-                        <div class="blockInner">
-                            <h4 style="display:inline-block;">{{ hospoda.jmeno }} </h4>
-                            <p style="display:inline-block;">&nbsp;&nbsp;{{ hospoda.adresa}} - {{ hospoda.lokace.jmeno }}</p>
-                            <div class="hodnoceniPopisBar">
-                                <div class="ohodnoceni">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td><h5><b>Obsluha</b></h5></td>
-                                                <td>
-                                                    {% for i in 1..5 %}
-                                                        {% if hospoda.obsluha >= i%}
-                                                            <span class="star-full"></span>
-                                                        {% else %}
-                                                            <span class="star-empty"></span>
-                                                        {% endif %}
+                    <div class="pub-card-wrapper col s12 m6 l4 ">
+                        <div class="pub-card">
+                            <h4 class="center-align">{{ hospoda.jmeno }} </h4>
+                            <h5 class="center-align">{{ hospoda.adresa}} - {{ hospoda.lokace.jmeno }} <i class="material-icons">place</i></h5>
+                            <table class="rank-table">
+                                <tbody>
+                                    <tr>
+                                        <td><h5><b>Obsluha</b></h5></td>
+                                        <td>
+                                            {% for i in 1..5 %}
+                                                {% if hospoda.obsluha >= i%}
+                                                    <span class="star-full"></span>
+                                                {% else %}
+                                                    <span class="star-empty"></span>
+                                                {% endif %}
 
-                                                    {% endfor %}
+                                            {% endfor %}
 
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><h5><b>Prostředí</b></h5></td>
-                                                <td>
-                                                    {% for i in 1..5 %}
-                                                        {% if hospoda.prostredi >= i %}
-                                                            <span class="star-full"></span>
-                                                        {% else %}
-                                                            <span class="star-empty"></span>
-                                                        {% endif %}
-                                                    {% endfor %}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h5><b>Prostředí</b></h5></td>
+                                        <td>
+                                            {% for i in 1..5 %}
+                                                {% if hospoda.prostredi >= i %}
+                                                    <span class="star-full"></span>
+                                                {% else %}
+                                                    <span class="star-empty"></span>
+                                                {% endif %}
+                                            {% endfor %}
 
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><h5><b>Celkem</b></h5></td>
-                                                <td>
-                                                    {% for i in 1..5 %}
-                                                        {% if hospoda.celkem >= i %}
-                                                            <span class="star-full"></span>
-                                                        {% else %}
-                                                            <span class="star-empty"></span>
-                                                        {% endif %}
-                                                    {% endfor %}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h5><b>Celkem</b></h5></td>
+                                        <td>
+                                            {% for i in 1..5 %}
+                                                {% if hospoda.celkem >= i %}
+                                                    <span class="star-full"></span>
+                                                {% else %}
+                                                    <span class="star-empty"></span>
+                                                {% endif %}
+                                            {% endfor %}
 
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <h5 class="popis">{{ hospoda.popis }}</h5>
-                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
-                            <div class="piva">
-                                <table>
-                                    <tbody>
-                                        {% for pivo in hospoda.piva %}
-                                            <tr><td><h4 class="nazevPiva">{{ pivo.znacka.nazev }}</h4></td><td><h4>{{ pivo.cena }},-</h4></td></tr>
-                                                {% endfor %}
-                                    </tbody>
-                                </table>
-                            </div>
+
+                            <h5 class="popis">{{ hospoda.popis }}</h5>
+
+
+                            <table class="piva">
+                                <tbody>
+                                    {% for pivo in hospoda.piva %}
+                                        <tr><td><h5 class="nazevPiva">{{ pivo.znacka.nazev }}</h5></td><td><h5>{{ pivo.cena }},-</h5></td></tr>
+                                            {% endfor %}
+                                </tbody>
+                            </table>
+
 
                             <div class="atrakce">
                                 {% for atrakce in hospoda.atrakce %}
-                                    <span class="icon {{ atrakce.jmeno|lower }}" title="{{ atrakce.jmeno }}"> </span>
+                                    <i class="material-icons">{{atrakce.icon}}</i>
                                 {% endfor %}
                             </div>
+
+
                         </div>
                     </div>
 

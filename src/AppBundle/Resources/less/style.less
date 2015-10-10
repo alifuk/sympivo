@@ -13,7 +13,7 @@
     width: 313px;
     background-color: #409FFF;
 
-    
+
 }
 
 .btn:hover, .btn-large:hover {
@@ -67,6 +67,86 @@ nav{
     padding: 20px 0;
     box-shadow: 0 0px 15px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19)
 }
+
+
+.pub-card-wrapper{
+
+    padding: 9px;
+
+    .pub-card{
+        
+        padding: 5px;
+        background: #f9fbfe;
+        border-left: 4px solid;    
+        border-radius: 3px;
+        border-color: #409FFF;
+        -moz-transition: ease-in-out .2s all;
+        -o-transition: ease-in-out .2s all;
+        -webkit-transition: ease-in-out .2s all;
+        transition: ease-in-out .2s all;  
+
+        &:hover{
+            background: #CFE9FF;
+        }
+
+        h4{
+            text-align: center; 
+            padding: 10px 0 0 0;
+            font-size: 50px;
+        }
+
+        h5{
+            text-align: center;
+            font-size: 20px;
+            i{
+                font-size: inherit;
+            }
+        }
+
+        .rank-table{
+            
+            .star-full, .star-empty{
+                width: 20px;
+                height: 20px;
+                background-size: contain;
+                background-position: center center;
+                display: block;
+                float: left;
+                position: relative;
+            }
+
+            .star-full{                    
+                background-image: url(../../img/icons/star-full.png);
+            }    
+            .star-empty{
+                background-image: url(../../img/icons/star-empty.png);
+            }
+
+        }
+        
+        .piva{            
+            font-size: 18px;
+            width: 60%;
+            margin: 0 auto;
+            
+            h5{
+                font-size: inherit;
+                margin: 4px;
+            }
+            
+        }
+
+
+
+
+
+    }
+
+
+}
+
+
+
 
 
 .blokOuter{

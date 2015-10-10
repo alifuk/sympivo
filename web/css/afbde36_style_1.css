@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+}
+.big-center-button {
+  margin: 0 auto;
+  display: block;
+  width: 313px;
+  background-color: #409FFF;
+}
+.btn:hover,
+.btn-large:hover {
+  background-color: #007fff;
+}
+body {
+  padding-bottom: 30px;
+}
+h1 {
+  font-size: 80px;
+  color: #FFF;
+  text-shadow: 0px 0px 13px #000000;
+  margin: 5px 0;
+}
+h3 {
+  font-size: 50px;
+  color: #eeeeee;
+  text-shadow: 0px 0px 13px #000000;
+  margin: 5px 0;
+}
+nav {
+  background-color: #409FFF;
+  color: #FFF;
+}
+nav ul a {
+  color: inherit;
+  font-size: 19px;
+}
+.footer {
+  position: fixed;
+  height: 30px;
+  width: 100%;
+  background-color: #EE6E73;
+  bottom: 0px;
+}
+.hoverable {
+  box-shadow: none !important;
+}
+.overpage {
+  padding: 20px 0;
+  box-shadow: 0 0px 15px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.pub-card-wrapper {
+  padding: 9px;
+}
+.pub-card-wrapper .pub-card {
+  background: #f9fbfe;
+  border-left: 4px solid;
+  border-radius: 3px;
+  border-color: #409FFF;
+  -moz-transition: ease-in-out .2s all;
+  -o-transition: ease-in-out .2s all;
+  -webkit-transition: ease-in-out .2s all;
+  transition: ease-in-out .2s all;
+}
+.pub-card-wrapper .pub-card:hover {
+  background: #CFE9FF;
+}
+.pub-card-wrapper .pub-card h4 {
+  text-align: center;
+  padding: 10px 0 0 0;
+  font-size: 50px;
+}
+.pub-card-wrapper .pub-card h5 {
+  text-align: center;
+  font-size: 21px;
+}
+.pub-card-wrapper .pub-card h5 i {
+  font-size: inherit;
+}
+.pub-card-wrapper .pub-card .rank-table .star-full,
+.pub-card-wrapper .pub-card .rank-table .star-empty {
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-position: center center;
+  display: block;
+  float: left;
+  position: relative;
+}
+.pub-card-wrapper .pub-card .rank-table .star-full {
+  background-image: url(../../img/icons/star-full.png);
+}
+.pub-card-wrapper .pub-card .rank-table .star-empty {
+  background-image: url(../../img/icons/star-empty.png);
+}
+.blokOuter .blockInner {
+  height: 183px;
+  padding: 9px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  background: #f9fbfe;
+  border-left: 4px solid;
+  border-radius: 3px;
+  border-color: #409FFF;
+  -moz-transition: ease-in-out .2s all;
+  -o-transition: ease-in-out .2s all;
+  -webkit-transition: ease-in-out .2s all;
+  transition: ease-in-out .2s all;
+}
+.blokOuter .blockInner:hover {
+  background: #CFE9FF;
+}
+.blokOuter .blockInner h4,
+.blokOuter .blockInner p {
+  margin: 0;
+}
+.blokOuter .blockInner .hodnoceniPopisBar {
+  height: 73px;
+  margin-bottom: 4px;
+}
+.blokOuter .blockInner .hodnoceniPopisBar .ohodnoceni {
+  float: left;
+  width: 185px;
+}
+.blokOuter .blockInner .hodnoceniPopisBar .ohodnoceni .star-full,
+.blokOuter .blockInner .hodnoceniPopisBar .ohodnoceni .star-empty {
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-position: center center;
+  display: block;
+  float: left;
+  top: -5px;
+  position: relative;
+}
+.blokOuter .blockInner .hodnoceniPopisBar .ohodnoceni .star-full {
+  background-image: url(../../img/icons/star-full.png);
+}
+.blokOuter .blockInner .hodnoceniPopisBar .ohodnoceni .star-empty {
+  background-image: url(../../img/icons/star-empty.png);
+}
+.blokOuter .blockInner .hodnoceniPopisBar .popis {
+  overflow: auto;
+  padding: 0px 0px 0 13px;
+}
+.blokOuter .blockInner .hodnoceniPopisBar h5 {
+  margin-top: 3px;
+  margin-right: 5px;
+  font-size: 14px;
+}
+.blokOuter .blockInner .piva {
+  clear: both;
+  float: left;
+  width: auto;
+  display: inline-block;
+}
+.blokOuter .blockInner .piva h4 {
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.blokOuter .blockInner .piva .nazevPiva {
+  min-width: 100px;
+}
+.blokOuter .blockInner .atrakce {
+  overflow: hidden;
+  padding: 0px 10px 0 10px;
+}
+.blokOuter .blockInner .atrakce h5 {
+  display: block;
+}
+.blokOuter .blockInner .atrakce td {
+  padding-left: 59px;
+}
+.blokOuter .blockInner .atrakceFull td {
+  padding-left: 10px;
+}

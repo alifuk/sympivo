@@ -35,10 +35,16 @@ class Atrakce {
     private $hospody;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="icon", type="string", length=255)
+     */
+    private $icon;
+
+    /**
      * Constructor
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->hospody = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -47,8 +53,7 @@ class Atrakce {
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -58,8 +63,7 @@ class Atrakce {
      * @param string $jmeno
      * @return Atrakce
      */
-    public function setJmeno($jmeno)
-    {
+    public function setJmeno($jmeno) {
         $this->jmeno = $jmeno;
 
         return $this;
@@ -70,8 +74,7 @@ class Atrakce {
      *
      * @return string 
      */
-    public function getJmeno()
-    {
+    public function getJmeno() {
         return $this->jmeno;
     }
 
@@ -81,8 +84,7 @@ class Atrakce {
      * @param \AppBundle\Entity\Hospoda $hospody
      * @return Atrakce
      */
-    public function addHospody(\AppBundle\Entity\Hospoda $hospody)
-    {
+    public function addHospody(\AppBundle\Entity\Hospoda $hospody) {
         $this->hospody[] = $hospody;
 
         return $this;
@@ -93,8 +95,7 @@ class Atrakce {
      *
      * @param \AppBundle\Entity\Hospoda $hospody
      */
-    public function removeHospody(\AppBundle\Entity\Hospoda $hospody)
-    {
+    public function removeHospody(\AppBundle\Entity\Hospoda $hospody) {
         $this->hospody->removeElement($hospody);
     }
 
@@ -103,8 +104,31 @@ class Atrakce {
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getHospody()
-    {
+    public function getHospody() {
         return $this->hospody;
+    }
+
+
+    /**
+     * Set icon
+     *
+     * @param string $icon
+     * @return Atrakce
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
+
+        return $this;
+    }
+
+    /**
+     * Get icon
+     *
+     * @return string 
+     */
+    public function getIcon()
+    {
+        return $this->icon;
     }
 }
