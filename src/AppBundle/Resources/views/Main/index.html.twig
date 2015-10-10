@@ -3,9 +3,13 @@
 {% block title %}LípaPije.cz - nejlepší hospody českolipska na jednom místě{% endblock %}
 
 {% block body %}
+
+
+
+
     <div class="parallax-container valign-wrapper" style="height: 600px;">
         <div class="parallax">
-            {% image '@AppBundle/Resources/img/foto/skybeer.jpg' %}
+            {% image '@AppBundle/Resources/img/pub.jpg' %}
             <img src="{{ asset_url }}" alt="lipapije.cz" />
             {% endimage %}
         </div>
@@ -106,27 +110,209 @@
 
 
 
-    <div class="parallax-container valign-wrapper" style="height: 600px;">
-        <div class="parallax">
-            {% image '@AppBundle/Resources/img/foto/skybeer.jpg' %}
-            <img src="{{ asset_url }}" alt="lipapije.cz" />
-            {% endimage %}
-        </div>
-        <div class="valign center-block center-align">
-            <h1>LípaPije.cz</h1>
-            <h3>buďte u té nejlepší pípy</h3>
-
-            <!--<a class="waves-effect waves-light btn-large"><i class="material-icons left">shopping_cart</i>Chci výhodně nakoupit</a>-->
-        </div>
-
-    </div>
+    <div id="mapa" style="width:100%; height:600px; margin-bottom: 50px;"></div>
 
 
+
+    <script src="//api.mapy.cz/loader.js"></script>
+    <script>Loader.load()</script>
     <script>
         $(function () {
             $('.parallax').parallax();
         });
 
+
+        var stred = SMap.Coords.fromWGS84(14.5369000, 50.6865764);
+        var mapa = new SMap(JAK.gel("mapa"), stred, 16);
+        mapa.addDefaultLayer(SMap.DEF_BASE).enable();
+
+        mapa.addDefaultLayer(SMap.DEF_BASE).enable();
+        /*m.addDefaultControls();*/
+
+        var o = {title: "Posun mapy"};
+        var c = new SMap.Control.Compass(o);
+        mapa.addControl(c, {left: "35px", top: "35px"});
+
+        var o = {title: "Zoom"};
+        var c = new SMap.Control.Zoom(o);
+        mapa.addControl(c, {left: "30px", top: "110px"});
+
+
+        var o = {title: "Myš"};
+        var c = new SMap.Control.Mouse(SMap.MOUSE_PAN, o);
+        mapa.addControl(c, {left: "30px", top: "110px"});
+
+        var layer = new SMap.Layer.Marker();
+        mapa.addLayer(layer);
+        layer.enable();
+
+        {% for hospoda in hospody %}
+            var marker = new SMap.Marker(SMap.Coords.fromWGS84({{hospoda.lon}}, {{hospoda.lat}}, {{hospoda.id}}, null));
+            layer.addMarker(marker);
+        {% endfor %}
+
+
+            /*
+             var obrazekBlue = "http://api4.mapy.cz/img/api/marker/drop-blue.png";
+             var obrazekRed = "http://api4.mapy.cz/img/api/marker/drop-red.png";
+             var obrazekGreen = "drop-green.png";
+             
+             var idecko = [
+             "strojintex",
+             "tesla",
+             "orchidea",
+             "dum",
+             "jested",
+             "divadlo",
+             "wolkerova",
+             "naivni",
+             "banka",
+             "centrum"
+             ];
+             
+             var nazvy = [
+             "Budova Strojintexu",
+             "Obchodní dům Tesla",
+             "Restaurace Orchidea",
+             "Montovaný obytný dům",
+             "Televizní vysílač a horský hotel Ještěd",
+             "Malé divadlo a provozní budova Divadla F. X. Šaldy",
+             "Bytový dům Wolkerova",
+             "Naivní divadlo",
+             "Banka ČSOB",
+             "Obchodní centrum Ještěd"
+             ];
+             
+             var obrazek = [
+             obrazekRed,
+             obrazekRed,
+             obrazekRed,
+             obrazekGreen,
+             obrazekGreen,
+             obrazekGreen,
+             obrazekGreen,
+             obrazekGreen,
+             obrazekGreen,
+             obrazekBlue
+             ];
+             
+             var y = [
+             50.7670247,
+             50.7697489,
+             50.7793661,
+             50.7759131,
+             50.7327339,
+             50.7732772,
+             50.7759672,
+             50.7677236,
+             50.7708583,
+             50.7662342
+             ];
+             
+             var x = [
+             15.0547725,
+             15.0610006,
+             15.0749372,
+             15.0841106,
+             14.9846328,
+             15.0520314,
+             15.0864333,
+             15.0577981,
+             15.0563014,
+             15.0551106
+             
+             ];
+             
+             var fotka = [
+             "strojintex.jpg",
+             "tesla.jpg",
+             "orchidea.jpg",
+             "dum.jpg",
+             "jested.jpg",
+             "divadlo.jpg",
+             "wolkerova.jpg",
+             "naivni.jpg",
+             "csob.jpg",
+             "centrum.jpg"
+             
+             ];
+             
+             var text = [
+             "Tato budova měla sloužit jako administrativní. Její vzhled byl brutalistnějšího nádechu a v průčelí si pohrávala s tektonikou „naruby“ (nejtěžší hmota na střeše). Byla navrhnuta na Gottwaldovo dnešní Soukenné náměstí v roce 1966.",
+             "Tento obchodní dům byl navrhnut roku 1967 a měl navazovat na Obchodní dům Ještěd. Jeho poloha měla být na místě dnešního hotelu Liberec. Celková kalkulace na stavbu Tesly byla vyčíslena na 13.000.000 Kčs.",
+             "Měla se nacházet na místě centra dnešní botanické zahrady. Její návrh je z roku 1966. Hubáček se inspiroval organickým tvaroslovím, ovšem na výsledné podobě se podílel se sochařem René Roubíčkem.",
+             "Objekt vznikl jako součást jedné z expozic Libereckých výstavních trhů (1958-1965). Tento objekt měl dokázat, že se dá z alternativních materiálů postavit dům za stejné prostředky jako panelákový byt. Později se ale tento dům stal i domovem architekta Hubáčka, ačkoli původně vznikl jen jako prototyp.",
+             "Vznikal od roku 1966 do roku 1973. Původní zadání bylo vytvoření dvou budov po zničení předchozích staveb na Ještědu, z nichž jedna měla sloužit jako vysílač a druhá jako restaurace. Architekt Hubáček ale svůj návrh sjednotil a tím vytvořil dnes nejznámější symbol Libereckého kraje.",
+             "Karel Hubáček vytvořil návrh pro Malé divadlo v roce 1986. Vytvořil hlediště s kapacitou 200 míst a variabilní odnímatelnou konstrukcí sedadlových řad v hledišti. Vytvořil také suterén, zákulisí, zkušebny,…V roce 1990 Hubáček pracoval na návrhu provozní budovy, která k Malé scéně Divadla F. X. Šaldy přiléhá. Ta zaujme především sloupovým a nad kterým se nachází úzký balkónek. Celý projekt těchto budov byl definitivně dokončen v roce 1993.",
+             "Karel Hubáček byl spoluautorem této stavby. On navrhoval územní plán této lokality. Tento desetipodlažní monoblok je citlivě začleněn do zalesněného svahu místní krajiny. Dům vznikal 1964-1972.",
+             "Projekt na přestavbu a dostavbu Naivního divadla Hubáček zpracovával v roce 1967-1968. Projekt, ze kterého se ve výsledku uskutečnila jen malá část, byl dokončen na podzim roku 1973.",
+             "Budova banky se stavěla od roku 1992-1994. Je postavena na skeletové konstrukci.",
+             "Obchodní centrum vznikalo přes deset let 1968-1979. Hubáček byl v tomto projektu spoluautorem. Bylo ve své době netradiční nejen svým tvarem ale i zbarvením, které působilo jako včelí úl. S rozlohou o 8000 m2 bylo obchodní centrum Ještěd jedním z největších obchodních center své doby ve státě. V roce 2009 ovšem došlo k jeho zbourání."
+             ];
+             
+             
+             var stred = SMap.Coords.fromWGS84(15.0550461, 50.7566583);
+             var mapa = new SMap(JAK.gel("mapa"), stred, 12);
+             mapa.addDefaultLayer(SMap.DEF_BASE).enable();
+             mapa.addDefaultControls();
+             
+             var layer = new SMap.Layer.Marker();
+             mapa.addLayer(layer);
+             layer.enable();
+             
+             var posluchac = function (e) {
+             
+             if ("marker-click" == e.type) {
+             $("li").attr("class", "");
+             $("#" + e.target._id).attr("class", "active")
+             
+             }
+             
+             }
+             
+             var signals = mapa.getSignals();
+             signals.addListener(window, "*", posluchac);
+             
+             
+             for (index = 0; index < idecko.length; index++) {
+             
+             
+             var card = new SMap.Card();
+             card.getHeader().innerHTML = "<center><h3>" + nazvy[index] + "</h3></center>";
+             card.getBody().innerHTML = '<img src="' + fotka[index] + '" alt="' + nazvy[index] + '" class="img-rounded" style="max-width: 300px; max-height:235px; float:left; margin-right:10px;"></div>' + text[index];
+             
+             var options = {
+             title: nazvy[index],
+             url: obrazek[index]
+             };
+             card.setSize(550, null);
+             var marker = new SMap.Marker(SMap.Coords.fromWGS84(x[index], y[index]), idecko[index], options);
+             marker.decorate(SMap.Marker.Feature.Card, card);
+             
+             
+             
+             layer.addMarker(marker);
+             
+             }
+             
+             
+             function otevriZnacku(name) {
+             
+             $("li").attr("class", "");
+             $("#" + name).attr("class", "active")
+             
+             znacky = layer.getMarkers();
+             for (index = 0; index < znacky.length; index++) {
+             if (znacky[index].getId() == name) {
+             znacky[index].click();
+             }
+             }
+             
+             
+             }
+             */
+
     </script>
+
 
 {% endblock %}

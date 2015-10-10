@@ -60,6 +60,20 @@ class Hospoda {
     private $popis;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="lat", type="string", length=255)
+     */
+    private $lat;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lon", type="string", length=255)
+     */
+    private $lon;
+    
+    /**
      * @ORM\OneToMany(targetEntity="Pivo", mappedBy="hospoda")
      */
     private $piva;
@@ -308,5 +322,51 @@ class Hospoda {
     public function getPopis()
     {
         return $this->popis;
+    }
+
+    /**
+     * Set lat
+     *
+     * @param string $lat
+     * @return Hospoda
+     */
+    public function setLat($lat)
+    {
+        $this->lat = $lat;
+
+        return $this;
+    }
+
+    /**
+     * Get lat
+     *
+     * @return string 
+     */
+    public function getLat()
+    {
+        return $this->lat;
+    }
+
+    /**
+     * Set lon
+     *
+     * @param string $lon
+     * @return Hospoda
+     */
+    public function setLon($lon)
+    {
+        $this->lon = $lon;
+
+        return $this;
+    }
+
+    /**
+     * Get lon
+     *
+     * @return string 
+     */
+    public function getLon()
+    {
+        return $this->lon;
     }
 }

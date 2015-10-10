@@ -55,10 +55,24 @@ class Hospoda {
     private $celkem;
     
     /**
-     * @ORM\Column(name="poznamka", type="string", length=1000)
+     * @ORM\Column(name="popis", type="string", length=1000)
      */
-    private $poznamka;
+    private $popis;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lat", type="string", length=255)
+     */
+    private $lat;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lon", type="string", length=255)
+     */
+    private $lon;
+    
     /**
      * @ORM\OneToMany(targetEntity="Pivo", mappedBy="hospoda")
      */
@@ -285,5 +299,28 @@ class Hospoda {
     public function getAtrakce()
     {
         return $this->atrakce;
+    }
+
+    /**
+     * Set popis
+     *
+     * @param string $popis
+     * @return Hospoda
+     */
+    public function setPopis($popis)
+    {
+        $this->popis = $popis;
+
+        return $this;
+    }
+
+    /**
+     * Get popis
+     *
+     * @return string 
+     */
+    public function getPopis()
+    {
+        return $this->popis;
     }
 }
