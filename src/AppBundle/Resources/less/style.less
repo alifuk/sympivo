@@ -130,6 +130,19 @@ nav{
             font-size: 50px;
         }
 
+
+
+        .icon-wrapper{
+            position: relative;
+            
+            .mapka_icon{            
+                height: 49px;
+                position: absolute;
+                top: -21px;
+                right: -51px;
+            }
+        }
+
         .popis-outer{
             min-height: 200px;
         }
@@ -163,7 +176,7 @@ nav{
         }
 
         .ikonka-piva-oddeleni{
-            height: 37px;
+            height: 44px;
             background-image: url(../../img/ikonky/pivko.png);
             background-position: center center;
             background-size: contain;
@@ -171,28 +184,40 @@ nav{
             margin: 5px;
         }
 
-        .piva{            
-            font-size: 18px;
-            width: 60%;
-            margin: 0 auto;
+        .piva-outer{
             min-height: 81px;
+            .piva{            
+                font-size: 18px;
+                width: auto;
+                margin: 0 auto;
 
-            h5{
-                font-size: inherit;
-                margin: 4px;
+                .nazevPiva{
+                    padding-right: 19px;
+                }
+
+                h5{
+                    font-size: inherit;
+                    margin: 4px;
+                }
+
             }
-
         }
+
 
         .atrakce{
 
             display: block;
-            width: 225px;
+            max-width: 266px;
             margin: 10px auto 0 ;
 
+            padding-left: 27px;
+            text-indent: -27px; 
+
+
             .ikonka-atrakce{
-                height: 51px;
-                width: 51px;
+                height: 45px;
+                width: 44px;
+                margin: 0 3px;
                 display: inline-block;
                 background-position: center center;
                 background-size: contain;

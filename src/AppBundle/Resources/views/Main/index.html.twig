@@ -8,7 +8,7 @@
 
 
     <div class="parallax-container valign-wrapper" style="height: 600px;">
-        <div class="parallax">
+        <div class="parallax" style="opacity: 0.7;">
             {% image '@AppBundle/Resources/img/pub.jpg' %}
             <img src="{{ asset_url }}" alt="lipapije.cz" />
             {% endimage %}
@@ -31,7 +31,9 @@
                     <div class="pub-card-wrapper col s12 m6 l4 ">
                         <div class="pub-card">
                             <h4 class="center-align">{{ hospoda.jmeno }} </h4>
-                            <h5 class="center-align">{{ hospoda.adresa}} - {{ hospoda.lokace.jmeno }} <i class="material-icons">place</i></h5>
+                            <h5 class="center-align" style="position: relative;">{{ hospoda.adresa}} - {{ hospoda.lokace.jmeno }} 
+                                <span class="icon-wrapper"><img src="../img/Ikonky/Mapa_hotovo.png" class="mapka_icon" alt="lipapije.cz" /></span>
+                            </h5>
                             <table class="rank-table">
                                 <tbody>
                                     <tr>
@@ -89,19 +91,21 @@
                             <div class="ikonka-piva-oddeleni">
                             </div>
 
-                            <table class="piva">
-                                <tbody>
-                                    {% for pivo in hospoda.piva %}
-                                        <tr><td><h5 class="nazevPiva">{{ pivo.znacka.nazev }}</h5></td><td><h5>{{ pivo.cena }},-</h5></td></tr>
-                                            {% endfor %}
-                                </tbody>
-                            </table>
+                            <div class="piva-outer">
+                                <table class="piva">
+                                    <tbody>
+                                        {% for pivo in hospoda.piva %}
+                                            <tr><td><h5 class="nazevPiva">{{ pivo.znacka.nazev }}</h5></td><td><h5>{{ pivo.cena }},-</h5></td></tr>
+                                                {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+
 
 
                             <div class="atrakce">
-                                {% for atrakce in hospoda.atrakce %}
-                                    
-                                    <span class="ikonka-atrakce" style="background-image: url(../img/Ikonky/{{atrakce.icon}}.png)"></span>
+                                {% for atrakce in hospoda.atrakce %}                                    
+                                    <span class="ikonka-atrakce tooltipped" data-position="top" data-delay="50" data-tooltip="{{atrakce.jmeno}}" style="background-image: url(../img/Ikonky/{{atrakce.icon}}.png)"></span>
                                 {% endfor %}
                             </div>
 
