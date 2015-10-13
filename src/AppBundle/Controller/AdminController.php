@@ -98,8 +98,9 @@ class AdminController extends Controller {
                 ->find($lokaceId);
 
         $hospoda = new Hospoda();
-
-        foreach ($request->request->get('piva') as $znackaId => $cena) {
+        
+        if($request->request->get('piva') != null){
+           foreach ($request->request->get('piva') as $znackaId => $cena) {
 
             $znacka = $this->getDoctrine()
                     ->getRepository('AppBundle:ZnackaPiva')
@@ -111,7 +112,9 @@ class AdminController extends Controller {
             $pivo->setCena($cena);
             $em->persist($pivo);
             $hospoda->addPiva($pivo);
+        } 
         }
+        
         
         foreach ($request->request->get('atrakce') as $atrakceId => $val) {
 
@@ -129,6 +132,7 @@ class AdminController extends Controller {
         $hospoda->setCelkem($celkem);
         $hospoda->setLokace($lokace);
         $hospoda->setPopis($popis);
+        
         
         $em->persist($hospoda);
         $em->flush();

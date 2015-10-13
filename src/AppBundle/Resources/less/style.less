@@ -44,14 +44,14 @@ body{
 }
 h1{
     font-size: 80px;
-    color: @white;
+    color: #EA4857;
     text-shadow: @shadow;
     margin: 5px 0;
 }
 
 h3{
     font-size: 50px;
-    color: @white - #111;
+    color: #EA4857;
     text-shadow: @shadow;
     margin: 5px 0;
 }
@@ -111,17 +111,17 @@ nav{
     .pub-card{
 
         padding: 5px;
-        background: #ffffec;
+        background: #FFFFDF;
         border-left: 4px solid;    
         border-radius: 3px;
-        border-color: #ACABB0;
+        border-color: #ffffc3;
         -moz-transition: ease-in-out .2s all;
         -o-transition: ease-in-out .2s all;
         -webkit-transition: ease-in-out .2s all;
         transition: ease-in-out .2s all;  
 
         &:hover{
-            background: #FFFFDF;
+            background: #ffffc3;
         }
 
         h4{
@@ -162,17 +162,19 @@ nav{
             }
 
             .star-full, .star-empty{
-                width: 20px;
-                height: 20px;
+                width: 31px;
+                height: 26px;
                 background-size: contain;
                 background-position: center center;
+                background-repeat: no-repeat;
                 display: block;
                 float: left;
                 position: relative;
+                margin-bottom: 1px;
             }
 
             .star-full{                    
-                background-image: url(../../img/icons/nova.png);
+                background-image: url(../../img/icons/nova3.png);
             }    
             .star-empty{
                 background-image: url(../../img/icons/star-empty.png);
@@ -219,6 +221,7 @@ nav{
 
             display: block;
             max-width: 266px;
+            min-height: 102px;
             margin: 10px auto 0 ;
 
             padding-left: 27px;
