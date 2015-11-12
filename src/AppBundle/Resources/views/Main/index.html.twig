@@ -8,7 +8,7 @@
 
 
     <div class="parallax-container valign-wrapper" style="height: 600px;">
-        <div class="parallax" style="opacity: 0.7;">
+        <div class="parallax" style="opacity: 0.3;">
             {% image '@AppBundle/Resources/img/pub.jpg' %}
             <img src="{{ asset_url }}" alt="lipapije.cz" />
             {% endimage %}
@@ -160,8 +160,10 @@
         layer.enable();
 
         {% for hospoda in hospody %}
-            var marker = new SMap.Marker(SMap.Coords.fromWGS84({{hospoda.lon}}, {{hospoda.lat}}, {{hospoda.id}}, null));
-                    layer.addMarker(marker);
+            {% if hospoda.lat is not empty %}
+                var marker = new SMap.Marker(SMap.Coords.fromWGS84({{hospoda.lon}}, {{hospoda.lat}}, {{hospoda.id}}, null));
+                        layer.addMarker(marker);
+            {% endif %}
         {% endfor %}
 
 
